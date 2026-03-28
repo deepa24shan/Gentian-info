@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gentian Solartech Inc. — Global Technology & Energy Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy: #0B1623;
+  --navy2: #132238;
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --cream: #F5F0E8;
+  --white: #FFFFFF;
+  --gray: #8A9BB0;
+  --light-bg: #F8F6F2;
+  --border: rgba(201,168,76,0.25);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 60px;background:rgba(11,22,35,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:40px;height:40px;background:var(--gold);clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);display:flex;align-items:center;justify-content:center;}
+.logo-text{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:1px;color:var(--white);}
+.logo-text span{color:var(--gold);}
+nav ul{display:flex;gap:36px;list-style:none;}
+nav ul a{color:var(--gray);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;}
+nav ul a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:10px 24px;font-weight:600!important;}
+.nav-cta:hover{background:var(--gold-light);color:var(--navy)!important;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 60px 80px;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0B1623 0%,#132238 50%,#0B1623 100%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.4;}
+.hero-orb{position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.15) 0%,transparent 70%);border-radius:50%;}
+.hero-content{position:relative;z-index:1;max-width:700px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:8px 20px;border-radius:2px;margin-bottom:32px;}
+.hero-badge span{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.badge-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,6vw,80px);font-weight:600;line-height:1.05;margin-bottom:24px;}
+h1 em{color:var(--gold);font-style:normal;}
+.hero-sub{font-size:16px;color:var(--gray);line-height:1.8;max-width:520px;margin-bottom:48px;font-weight:300;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--navy);padding:16px 40px;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all .3s;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-outline{border:1px solid var(--border);color:var(--cream);padding:16px 40px;font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all .3s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{display:flex;gap:48px;margin-top:64px;padding-top:40px;border-top:1px solid var(--border);}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--gold);font-weight:600;}
+.stat-label{font-size:12px;color:var(--gray);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+
+/* SECTION */
+section{padding:100px 60px;}
+.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,54px);font-weight:600;line-height:1.15;margin-bottom:20px;}
+.section-sub{color:var(--gray);font-size:15px;line-height:1.8;max-width:560px;font-weight:300;}
+.title-line{width:60px;height:2px;background:var(--gold);margin:24px 0;}
+
+/* SERVICES */
+.services-bg{background:var(--navy2);}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:24px;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;}
+.service-card{background:var(--navy);padding:48px 40px;border:1px solid var(--border);position:relative;overflow:hidden;transition:all .4s;}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+.service-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+.service-card:hover::before{transform:scaleX(1);}
+.service-icon{width:56px;height:56px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:28px;font-size:24px;}
+.service-num{position:absolute;top:24px;right:24px;font-family:'Cormorant Garamond',serif;font-size:48px;color:rgba(201,168,76,0.08);font-weight:700;line-height:1;}
+.service-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin-bottom:12px;}
+.service-desc{color:var(--gray);font-size:14px;line-height:1.8;margin-bottom:28px;font-weight:300;}
+.service-features{list-style:none;margin-bottom:32px;}
+.service-features li{font-size:13px;color:var(--gray);padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;gap:10px;}
+.service-features li::before{content:'—';color:var(--gold);font-size:12px;}
+
+/* PRICING TABS */
+.price-section{margin-top:16px;padding-top:24px;border-top:1px solid var(--border);}
+.price-tabs{display:flex;gap:4px;margin-bottom:16px;}
+.price-tab{font-size:11px;letter-spacing:1px;padding:5px 12px;border:1px solid var(--border);background:transparent;color:var(--gray);cursor:pointer;transition:all .2s;font-family:'Jost',sans-serif;}
+.price-tab.active{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600;}
+.price-display{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--white);font-weight:600;margin-bottom:16px;}
+.price-display span{font-size:14px;color:var(--gray);font-family:'Jost',sans-serif;font-weight:300;}
+.buy-btn{display:block;width:100%;padding:14px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-size:12px;letter-spacing:2px;text-transform:uppercase;text-align:center;text-decoration:none;cursor:pointer;transition:all .3s;font-family:'Jost',sans-serif;font-weight:500;}
+.buy-btn:hover{background:var(--gold);color:var(--navy);}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img{position:relative;}
+.about-img-main{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--navy2),#1a3050);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.globe{width:200px;height:200px;border-radius:50%;background:conic-gradient(from 0deg,rgba(201,168,76,0.3),rgba(201,168,76,0.05),rgba(201,168,76,0.3));border:2px solid var(--border);animation:spin 20s linear infinite;}
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.about-accent{position:absolute;bottom:-20px;right:-20px;width:160px;height:100px;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-direction:column;}
+.about-accent-num{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--navy);font-weight:700;}
+.about-accent-text{font-size:10px;letter-spacing:1px;color:var(--navy);text-transform:uppercase;}
+.regions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;}
+.region{padding:20px;border:1px solid var(--border);}
+.region-name{font-size:13px;font-weight:500;margin-bottom:4px;}
+.region-detail{font-size:12px;color:var(--gray);}
+
+/* WHY US */
+.whyus-bg{background:var(--navy2);}
+.whyus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-top:60px;}
+.why-item{text-align:center;padding:40px 24px;border:1px solid var(--border);}
+.why-icon{font-size:32px;margin-bottom:16px;}
+.why-title{font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:12px;}
+.why-desc{font-size:13px;color:var(--gray);line-height:1.7;}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.contact-info{display:flex;flex-direction:column;gap:32px;margin-top:40px;}
+.contact-item{display:flex;gap:20px;align-items:flex-start;}
+.contact-icon{width:48px;height:48px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;}
+.contact-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.contact-val{font-size:15px;color:var(--cream);}
+.contact-form{background:var(--navy2);border:1px solid var(--border);padding:48px;}
+.form-group{margin-bottom:24px;}
+.form-group label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:transparent;border:1px solid var(--border);padding:14px 16px;color:var(--white);font-family:'Jost',sans-serif;font-size:14px;outline:none;transition:border .3s;}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);}
+.form-group select option{background:var(--navy2);color:var(--white);}
+.form-group textarea{height:120px;resize:vertical;}
+.form-submit{width:100%;padding:16px;background:var(--gold);border:none;color:var(--navy);font-family:'Jost',sans-serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s;}
+.form-submit:hover{background:var(--gold-light);}
+
+/* FOOTER */
+footer{background:var(--navy2);border-top:1px solid var(--border);padding:60px 60px 32px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-brand .logo-text{font-size:18px;}
+.footer-brand p{font-size:13px;color:var(--gray);line-height:1.8;margin-top:16px;max-width:260px;}
+.footer-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul a{font-size:13px;color:var(--gray);text-decoration:none;transition:color .3s;}
+.footer-col ul a:hover{color:var(--gold);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--border);}
+.footer-bottom p{font-size:12px;color:var(--gray);}
+.footer-bottom a{color:var(--gold);text-decoration:none;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+nav{padding:16px 24px;}
+nav ul{display:none;}
+.hero{padding:100px 24px 60px;}
+section{padding:60px 24px;}
+.about-grid,.contact-grid{grid-template-columns:1fr;}
+.footer-grid{grid-template-columns:1fr 1fr;}
+.hero-stats{gap:24px;}
+}
+@media(max-width:600px){
+.services-header{flex-direction:column;}
+.footer-grid{grid-template-columns:1fr;}
+.hero-btns{flex-direction:column;}
+.btn-gold,.btn-outline{text-align:center;}
+}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:all .7s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon"></div>
+    <div class="logo-text">Gentian <span>Solartech</span> Inc.</div>
+  </div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-content fade-in">
+    <div class="hero-badge"><div class="badge-dot"></div><span>Global Technology & Energy Solutions</span></div>
+    <h1>Powering the <em>Future</em> of Business & Energy</h1>
+    <p class="hero-sub">Gentian Solartech Inc. delivers world-class solutions in Solar Energy, Telecom, Artificial Intelligence, and Management Consulting across India, USA, EU, and the Middle East.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-gold">Explore Services</a>
+      <a href="#contact" class="btn-outline">Request a Proposal</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">4+</div><div class="stat-label">Global Markets</div></div>
+      <div><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-label">Client Focused</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <div class="services-header fade-in">
+    <div>
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Our Core<br/>Services</h2>
+      <div class="title-line"></div>
+    </div>
+    <p class="section-sub">Select a service package and proceed to secure payment. All prices listed in USD, EUR, and INR.</p>
+  </div>
+  <div class="services-grid">
+
+    <!-- Solar -->
+    <div class="service-card fade-in">
+      <div class="service-num">01</div>
+      <div class="service-icon">☀️</div>
+      <div class="service-title">Solar & Green Energy</div>
+      <p class="service-desc">End-to-end solar project development, feasibility studies, DPR preparation, and green energy consulting for commercial and industrial clients.</p>
+      <ul class="service-features">
+        <li>Detailed Project Report (DPR)</li>
+        <li>Solar Plant Feasibility Study</li>
+        <li>Government Subsidy Guidance</li>
+        <li>EPC Vendor Selection</li>
+        <li>ROI & Financial Modelling</li>
+      </ul>
+      <div class="price-section">
+        <div class="price-tabs">
+          <button class="price-tab active" onclick="setPrice(this,'solar','usd')">USD</button>
+          <button class="price-tab" onclick="setPrice(this,'solar','eur')">EUR</button>
+          <button class="price-tab" onclick="setPrice(this,'solar','inr')">INR</button>
+        </div>
+        <div class="price-display" id="solar-price">$1,500 <span>/ project</span></div>
+        <a href="https://buy.stripe.com/your-solar-link" class="buy-btn" target="_blank">Purchase Now →</a>
+      </div>
+    </div>
+
+    <!-- Telecom -->
+    <div class="service-card fade-in">
+      <div class="service-num">02</div>
+      <div class="service-icon">📡</div>
+      <div class="service-title">Telecom Solutions</div>
+      <p class="service-desc">Comprehensive telecom infrastructure planning, network design, and digital connectivity solutions for enterprises and government projects.</p>
+      <ul class="service-features">
+        <li>Network Infrastructure Planning</li>
+        <li>Telecom Project Management</li>
+        <li>Import/Export of Telecom Equipment</li>
+        <li>Rural Connectivity Projects</li>
+        <li>Vendor Negotiation & Procurement</li>
+      </ul>
+      <div class="price-section">
+        <div class="price-tabs">
+          <button class="price-tab active" onclick="setPrice(this,'telecom','usd')">USD</button>
+          <button class="price-tab" onclick="setPrice(this,'telecom','eur')">EUR</button>
+          <button class="price-tab" onclick="setPrice(this,'telecom','inr')">INR</button>
+        </div>
+        <div class="price-display" id="telecom-price">$2,000 <span>/ project</span></div>
+        <a href="https://buy.stripe.com/your-telecom-link" class="buy-btn" target="_blank">Purchase Now →</a>
+      </div>
+    </div>
+
+    <!-- AI -->
+    <div class="service-card fade-in">
+      <div class="service-num">03</div>
+      <div class="service-icon">🤖</div>
+      <div class="service-title">AI & Technology</div>
+      <p class="service-desc">Cutting-edge AI integration, digital transformation consulting, and custom technology solutions to modernize your business operations.</p>
+      <ul class="service-features">
+        <li>AI Strategy & Roadmap</li>
+        <li>Digital Transformation Consulting</li>
+        <li>Custom AI Tool Development</li>
+        <li>Data Analytics & Automation</li>
+        <li>IT Infrastructure Advisory</li>
+      </ul>
+      <div class="price-section">
+        <div class="price-tabs">
+          <button class="price-tab active" onclick="setPrice(this,'ai','usd')">USD</button>
+          <button class="price-tab" onclick="setPrice(this,'ai','eur')">EUR</button>
+          <button class="price-tab" onclick="setPrice(this,'ai','inr')">INR</button>
+        </div>
+        <div class="price-display" id="ai-price">$2,500 <span>/ project</span></div>
+        <a href="https://buy.stripe.com/your-ai-link" class="buy-btn" target="_blank">Purchase Now →</a>
+      </div>
+    </div>
+
+    <!-- Consulting -->
+    <div class="service-card fade-in">
+      <div class="service-num">04</div>
+      <div class="service-icon">📊</div>
+      <div class="service-title">Management Consulting</div>
+      <p class="service-desc">Strategic business consulting, market entry advisory, international expansion planning, and organizational transformation for global enterprises.</p>
+      <ul class="service-features">
+        <li>Business Strategy Development</li>
+        <li>Market Entry & Expansion</li>
+        <li>International Trade Advisory</li>
+        <li>Financial Planning & Analysis</li>
+        <li>Corporate Restructuring</li>
+      </ul>
+      <div class="price-section">
+        <div class="price-tabs">
+          <button class="price-tab active" onclick="setPrice(this,'consulting','usd')">USD</button>
+          <button class="price-tab" onclick="setPrice(this,'consulting','eur')">EUR</button>
+          <button class="price-tab" onclick="setPrice(this,'consulting','inr')">INR</button>
+        </div>
+        <div class="price-display" id="consulting-price">$1,800 <span>/ project</span></div>
+        <a href="https://buy.stripe.com/your-consulting-link" class="buy-btn" target="_blank">Purchase Now →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="fade-in">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">A Global Force in Technology & Energy</h2>
+      <div class="title-line"></div>
+      <p class="section-sub">Gentian Solartech Inc. is a US-incorporated technology and energy solutions company headquartered in Kalispell, Montana, with operations spanning India, Europe, and the Middle East. We bridge innovation with execution.</p>
+      <div class="regions">
+        <div class="region"><div class="region-name">🇺🇸 United States</div><div class="region-detail">Kalispell, Montana</div></div>
+        <div class="region"><div class="region-name">🇮🇳 India</div><div class="region-detail">Tiruchirappalli, Tamil Nadu</div></div>
+        <div class="region"><div class="region-name">🇪🇺 Europe</div><div class="region-detail">EU Market Operations</div></div>
+        <div class="region"><div class="region-name">🌍 Middle East</div><div class="region-detail">Regional Partnerships</div></div>
+      </div>
+    </div>
+    <div class="about-img fade-in">
+      <div class="about-img-main">
+        <div class="globe"></div>
+      </div>
+      <div class="about-accent">
+        <div class="about-accent-num">US</div>
+        <div class="about-accent-text">Incorporated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="whyus-bg" id="why">
+  <div style="text-align:center;" class="fade-in">
+    <div class="section-label">Our Advantage</div>
+    <h2 class="section-title">Why Choose Gentian Solartech</h2>
+    <div class="title-line" style="margin:24px auto;"></div>
+  </div>
+  <div class="whyus-grid">
+    <div class="why-item fade-in">
+      <div class="why-icon">🌐</div>
+      <div class="why-title">Global Reach</div>
+      <p class="why-desc">Operations across USA, India, EU, and Middle East with deep local market expertise in each region.</p>
+    </div>
+    <div class="why-item fade-in">
+      <div class="why-icon">🔒</div>
+      <div class="why-title">Secure Payments</div>
+      <p class="why-desc">All transactions secured by Stripe — supporting cards, wallets, bank transfers across 30+ countries.</p>
+    </div>
+    <div class="why-item fade-in">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Fast Delivery</div>
+      <p class="why-desc">Rapid project turnaround with dedicated project managers and clear milestone-based delivery.</p>
+    </div>
+    <div class="why-item fade-in">
+      <div class="why-icon">🏆</div>
+      <div class="why-title">Expert Team</div>
+      <p class="why-desc">PhD-led consulting with deep expertise in energy, technology, and international business strategy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="fade-in">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Request a Proposal or Consultation</h2>
+      <div class="title-line"></div>
+      <p class="section-sub">Have a project in mind? Contact us today and our team will respond within 24 hours.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div><div class="contact-label">Email</div><div class="contact-val">gentianinfo1@gmail.com</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div><div class="contact-label">Website</div><div class="contact-val">gentian-solartech-inc.odoo.com</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🏢</div>
+          <div><div class="contact-label">Headquarters</div><div class="contact-val">Kalispell, Montana, USA</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🇮🇳</div>
+          <div><div class="contact-label">India Office</div><div class="contact-val">Tiruchirappalli, Tamil Nadu</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form fade-in">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your full name"/>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com"/>
+      </div>
+      <div class="form-group">
+        <label>Service Required</label>
+        <select>
+          <option>Solar & Green Energy</option>
+          <option>Telecom Solutions</option>
+          <option>AI & Technology</option>
+          <option>Management Consulting</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Project Details</label>
+        <textarea placeholder="Describe your project requirements..."></textarea>
+      </div>
+      <button class="form-submit" onclick="alert('Thank you! We will contact you within 24 hours.')">Send Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-icon"></div>
+        <div class="logo-text">Gentian <span>Solartech</span> Inc.</div>
+      </div>
+      <p>Global technology and energy solutions company incorporated in the USA, serving clients across India, Europe, and the Middle East.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Solar Energy</a></li>
+        <li><a href="#services">Telecom Solutions</a></li>
+        <li><a href="#services">AI & Technology</a></li>
+        <li><a href="#services">Management Consulting</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:gentianinfo1@gmail.com">gentianinfo1@gmail.com</a></li>
+        <li><a href="#">Kalispell, Montana, USA</a></li>
+        <li><a href="#">Trichy, Tamil Nadu, India</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Gentian Solartech Inc. All rights reserved.</p>
+    <p>Payments secured by <a href="#">Stripe</a></p>
+  </div>
+</footer>
+
+<script>
+const prices = {
+  solar:      {usd:'$1,500',eur:'€1,380',inr:'₹1,25,000'},
+  telecom:    {usd:'$2,000',eur:'€1,840',inr:'₹1,67,000'},
+  ai:         {usd:'$2,500',eur:'€2,300',inr:'₹2,08,000'},
+  consulting: {usd:'$1,800',eur:'€1,650',inr:'₹1,50,000'}
+};
+
+function setPrice(btn, service, currency) {
+  const tabs = btn.parentElement.querySelectorAll('.price-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const el = document.getElementById(service + '-price');
+  el.innerHTML = prices[service][currency] + ' <span>/ project</span>';
+}
+
+// Fade in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold: 0.1});
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
